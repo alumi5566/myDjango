@@ -83,6 +83,14 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
         # SQLite case: the database will be a file in localhost, NAME is the direction to this file
         # If we are not using SQLite, there should be more config here. i.e. USER, PASSWORD, HOST...
+    },
+    'oracle_db': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'cydb01_high',
+        'USER': 'ADMIN',
+        'PASSWORD': '!Al033626699',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
