@@ -12,6 +12,10 @@ class Question(models.Model):
     def was_published_recently(self):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
+    class Meta:
+        db_table = "ORACLEDB_QUESTION"
+        app_label = "oracleDB"
+        managed = True
 
 
 class Choice(models.Model):
@@ -20,3 +24,7 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text
+    class Meta:
+        db_table = "ORACLEDB_CHOICE"
+        app_label = "oracleDB"
+        managed = True
