@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # $python manage.py migrate will check the list in INSTALLED_APPS
 INSTALLED_APPS = [
     "polls.apps.PollsConfig",
+    "oracleDB.apps.OracledbConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,20 +78,20 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         # candidate: 'django.db.backends.sqlite3'，'django.db.backends.postgresql'，'django.db.backends.mysql'，或 'django.db.backends.oracle'
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         # SQLite case: the database will be a file in localhost, NAME is the direction to this file
+#         # If we are not using SQLite, there should be more config here. i.e. USER, PASSWORD, HOST...
+#     },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # candidate: 'django.db.backends.sqlite3'，'django.db.backends.postgresql'，'django.db.backends.mysql'，或 'django.db.backends.oracle'
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # SQLite case: the database will be a file in localhost, NAME is the direction to this file
-        # If we are not using SQLite, there should be more config here. i.e. USER, PASSWORD, HOST...
-    },
-    'oracle_db': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': 'cydb01_high',
         'USER': 'ADMIN',
         'PASSWORD': '!Al033626699',
-        'HOST': 'localhost',
-        'PORT': '',
+#         'HOST': 'adb.us-sanjose-1.oraclecloud.com',
+#         'PORT': '1522',
     }
 }
 
