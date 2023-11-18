@@ -11,16 +11,28 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 from pathlib import Path
+import json
+import os
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+    secrets = json.load(secrets_file)
+
+def get_secret(setting, secrets=secrets):
+    """Get secret setting or fail with ImproperlyConfigured"""
+    try:
+        return secrets[setting]
+    except KeyError:
+        raise ImproperlyConfigured("Set the {} setting".format(setting))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0+ucy*q9a2#-qywu%!iqo(irv$fuai%y64b_(i@5jx4))!t5!*'
+SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -89,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': 'cydb01_high',
         'USER': 'ADMIN',
-        'PASSWORD': '!Al033626699',
+        'PASSWORD': get_secret('DB_PASSWORD'),
 #         'HOST': 'adb.us-sanjose-1.oraclecloud.com',
 #         'PORT': '1522',
     }
