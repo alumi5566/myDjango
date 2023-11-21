@@ -7,8 +7,8 @@ from django.utils import timezone
 
 # Create your views here.
 
-def index(request):
+def base(request):
 #     return render(request, "home/index.html")
 #     return HttpResponse("You're looking at home.")
-    template = loader.get_template("home/index.html")
+    template = loader.get_template("home/base.html")
     return HttpResponse(template.render(None, request))

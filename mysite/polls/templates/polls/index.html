@@ -1,11 +1,15 @@
+{% extends 'home/base.html' %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 <!DOCTYPE html>
 <html lang="en">
+{% block title %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+{% endblock %}
+{% block content %}
 <body>
     <h1>In index.html</h1>
     {% if latest_question_list %}
@@ -30,4 +34,5 @@
     <p>No polls are available.</p>
     {% endif %}
 </body>
+{% endblock %}
 </html>
