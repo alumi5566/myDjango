@@ -51,3 +51,30 @@ https://blogs.oracle.com/opal/post/connecting-to-oracle-cloud-autonomous-databas
   https://dboostme.medium.com/using-django-with-multiple-databases-introduction-8f0ffb409995
 * If you follow the original tutorial, you will ended up store the secret and password in the GitHub and expose your credential. 
   Following https://stackoverflow.com/questions/42077532/django-security-and-settings and put the credential in the secrets.json. This file is excluded from git commit.
+
+# Deploy to OCI
+https://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/apaas/python/python-django-accs/python-django-accs.html#section4
+https://www.youtube.com/watch?v=ZxyuWiEwFjo
+```
+// in requeriment.txt 
+django==4.2.7
+djangorestframework==3.6.2
+```
+```
+> pip3 install -r requeriments.txt -t modules
+Collecting django==4.2.7 (from -r requeriments.txt (line 1))
+  Obtaining dependency information for django==4.2.7 from https://files.pythonhosted.org/packages/2d/6d/e87236e3c7b2f5911d132034177aebb605f3953910cc429df8061b13bf10/Django-4.2.7-py3-none-any.whl.metadata
+  Using cached Django-4.2.7-py3-none-any.whl.metadata (4.1 kB)
+Collecting djangorestframework==3.6.2 (from -r requeriments.txt (line 2))
+  Downloading djangorestframework-3.6.2-py2.py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 6.4 MB/s eta 0:00:00
+Collecting asgiref<4,>=3.6.0 (from django==4.2.7->-r requeriments.txt (line 1))
+  Obtaining dependency information for asgiref<4,>=3.6.0 from https://files.pythonhosted.org/packages/9b/80/b9051a4a07ad231558fcd8ffc89232711b4e618c15cb7a392a17384bbeef/asgiref-3.7.2-py3-none-any.whl.metadata
+  Using cached asgiref-3.7.2-py3-none-any.whl.metadata (9.2 kB)
+Collecting sqlparse>=0.3.1 (from django==4.2.7->-r requeriments.txt (line 1))
+  Using cached sqlparse-0.4.4-py3-none-any.whl (41 kB)
+Using cached Django-4.2.7-py3-none-any.whl (8.0 MB)
+Using cached asgiref-3.7.2-py3-none-any.whl (24 kB)
+Installing collected packages: djangorestframework, sqlparse, asgiref, django
+Successfully installed asgiref-3.7.2 django-4.2.7 djangorestframework-3.6.2 sqlparse-0.4.4
+```
