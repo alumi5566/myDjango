@@ -78,3 +78,5 @@ Using cached asgiref-3.7.2-py3-none-any.whl (24 kB)
 Installing collected packages: djangorestframework, sqlparse, asgiref, django
 Successfully installed asgiref-3.7.2 django-4.2.7 djangorestframework-3.6.2 sqlparse-0.4.4
 ```
+
+test commit from new mac
