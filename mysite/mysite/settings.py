@@ -45,8 +45,9 @@ ALLOWED_HOSTS = ['*']
 # All Django Application we use in this project
 # $python manage.py migrate will check the list in INSTALLED_APPS
 INSTALLED_APPS = [
+    "awsRDS.apps.AwsrdsConfig",
     "polls.apps.PollsConfig",
-    "oracleDB.apps.OracledbConfig",
+    # "oracleDB.apps.OracledbConfig",
     "home.apps.HomeConfig",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -91,7 +92,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASE_ROUTERS = ['mysite.routers.oracleDBRouter']
+DATABASE_ROUTERS = ['mysite.routers.CloudDBRouter']
 
 DATABASES = {
     'default': {
@@ -101,14 +102,6 @@ DATABASES = {
         # SQLite case: the database will be a file in localhost, NAME is the direction to this file
         # If we are not using SQLite, there should be more config here. i.e. USER, PASSWORD, HOST...
     },
-#     'default': {
-#         'ENGINE': 'django.db.backends.oracle',
-#         'NAME': 'cydb01_high',
-#         'USER': 'ADMIN',
-#         'PASSWORD': get_secret('DB_PASSWORD'),
-# #         'HOST': 'adb.us-sanjose-1.oraclecloud.com',
-# #         'PORT': '1522',
-#     },
     'second_db': {
             'ENGINE': 'django.db.backends.oracle',
             'NAME': 'cydb01_high',
@@ -116,7 +109,15 @@ DATABASES = {
             'PASSWORD': get_secret('DB_PASSWORD'),
     #         'HOST': 'adb.us-sanjose-1.oraclecloud.com',
     #         'PORT': '1522',
-        }
+    },
+    'aws_db': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'CY_DB',
+        'USER': 'admin',
+        'PASSWORD': get_secret('DB_PASSWORD'),
+        'HOST': 'database-1.ciquyonhsvgm.us-east-2.rds.amazonaws.com',
+        'PORT': '3306',
+    },
 }
 
 
@@ -154,7 +155,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

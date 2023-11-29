@@ -21,5 +21,6 @@ urlpatterns = [
     path("home/", include("home.urls")),
     path("polls/", include("polls.urls")),
     path("oracleDB/", include("oracleDB.urls")),
+    path("awsRDS/", include("awsRDS.urls")),
     path('admin/', admin.site.urls),
 ]
