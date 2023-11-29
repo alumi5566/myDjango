@@ -2,6 +2,14 @@
 This is for learning purpose. The home app created an aggregate view and put the like to the rest of app in sidebar. 
 Step by step following the tutorial in https://docs.djangoproject.com/zh-hans/4.2/contents/
 
+# Instruction
+This project involved OCI database connection and rest API, aside from git clone, you may need to install these tools to run the app locally
+```
+$pip3 install django
+$pip3 install djangorestframework
+$pip3 install cx_oracle
+```
+
 # Components
 ## Home
 The home/base.html is the view for main page. Reserve a block content for showing context from other apps.
@@ -51,6 +59,22 @@ https://blogs.oracle.com/opal/post/connecting-to-oracle-cloud-autonomous-databas
   https://dboostme.medium.com/using-django-with-multiple-databases-introduction-8f0ffb409995
 * If you follow the original tutorial, you will ended up store the secret and password in the GitHub and expose your credential. 
   Following https://stackoverflow.com/questions/42077532/django-security-and-settings and put the credential in the secrets.json. This file is excluded from git commit.
+
+## AwsRDS
+```
+$ sudo pip3 install mysql-connector-python
+$ sudo pip3 install mysql-python
+$ sudo pip3 install mysqlclient
+```
+1 = Create RDS database in AWS
+
+2 = Setup out bound rule to enable the external connection
+
+3 = Assign host/port/username/password in setting (in aws_db)
+
+4 = Update routing rule 
+
+5 = 4 = `$python manage.py migrate database=aws_db` and `$python manage.py makemigrations awsRDS`
 
 # Deploy to OCI
 https://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/apaas/python/python-django-accs/python-django-accs.html#section4
