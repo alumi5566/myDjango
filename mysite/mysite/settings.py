@@ -39,12 +39,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = '2525'
 
 # Application definition
 
 # All Django Application we use in this project
 # $python manage.py migrate will check the list in INSTALLED_APPS
 INSTALLED_APPS = [
+    "contact.apps.ContactConfig",
     "awsRDS.apps.AwsrdsConfig",
     "polls.apps.PollsConfig",
     # "oracleDB.apps.OracledbConfig",

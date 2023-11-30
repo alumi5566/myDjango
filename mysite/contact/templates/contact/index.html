@@ -1,0 +1,16 @@
+{% extends 'home/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% url 'contact:conte' %}
+{% block content %}
+    <body>
+        <h1>Contact</h1>
+        <form method="POST" action=".">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Submit</button>
+        </form>
+    </body>
+{% endblock %}
+</html>

@@ -76,6 +76,13 @@ $ sudo pip3 install mysqlclient
 
 5 = 4 = `$python manage.py migrate database=aws_db` and `$python manage.py makemigrations awsRDS`
 
+## Contact
+Adding a form to allow user sending email. The backend connect to SMTP service held by Mailtrap
+
+Reference: 
+https://www.youtube.com/watch?v=dnhEnF7_RyM
+https://docs.djangoproject.com/en/4.2/topics/email/
+
 # Deploy to OCI
 https://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/apaas/python/python-django-accs/python-django-accs.html#section4
 https://www.youtube.com/watch?v=ZxyuWiEwFjo
