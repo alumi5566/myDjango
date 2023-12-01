@@ -83,6 +83,16 @@ Reference:
 https://www.youtube.com/watch?v=dnhEnF7_RyM
 https://docs.djangoproject.com/en/4.2/topics/email/
 
+## REST API
+`$curl -H 'Accept: application/json; indent=4' http://127.0.0.1:8000/questions/`
+
+visit `http://127.0.0.1:8000/questions/` `http://127.0.0.1:8000/choices/`
+
+Next: token auth for API: https://simpleisbetterthancomplex.com/tutorial/2018/11/22/how-to-implement-token-authentication-using-django-rest-framework.html
+
+Reference: https://q1mi.github.io/Django-REST-framework-documentation/tutorial/quickstart_zh/
+
+
 # Deploy to OCI
 https://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/apaas/python/python-django-accs/python-django-accs.html#section4
 https://www.youtube.com/watch?v=ZxyuWiEwFjo

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "contact.apps.ContactConfig",
     "awsRDS.apps.AwsrdsConfig",
     "polls.apps.PollsConfig",
+    # "polls",
     # "oracleDB.apps.OracledbConfig",
     "home.apps.HomeConfig",
     'django.contrib.admin',
