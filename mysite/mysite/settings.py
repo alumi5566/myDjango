@@ -51,10 +51,13 @@ EMAIL_PORT = '2525'
 # All Django Application we use in this project
 # $python manage.py migrate will check the list in INSTALLED_APPS
 INSTALLED_APPS = [
+    'rest_framework',
+    'daphne',
+    'channels',
+    'rtChat.apps.RtchatConfig',
     "contact.apps.ContactConfig",
     "awsRDS.apps.AwsrdsConfig",
     "polls.apps.PollsConfig",
-    # "polls",
     # "oracleDB.apps.OracledbConfig",
     "home.apps.HomeConfig",
     'django.contrib.admin',
@@ -63,7 +66,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -94,8 +96,18 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = 'mysite.asgi.application'
+
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
+
+LOGIN_REDIRECT_URL = "chat-page"
+LOGOUT_REDIRECT_URL = "login-user"
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases

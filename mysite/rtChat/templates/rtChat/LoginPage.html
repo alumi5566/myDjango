@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+<!DOCTYPE html>
+<html>
+{% block content %}
+<body>
+<form method ="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <br>
+    <button type = "submit">Login</button>
+</form>
+</body>
+{% endblock %}
+</html>

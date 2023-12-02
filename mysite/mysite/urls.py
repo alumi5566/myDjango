@@ -33,5 +33,6 @@ urlpatterns = [
     path("contact/", include("contact.urls")),
     re_path(r'^', include(router.urls)),
     re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path("rtChat/", include("rtChat.urls")),
     path('admin/', admin.site.urls),
 ]

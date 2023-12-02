@@ -83,6 +83,10 @@ Reference:
 https://www.youtube.com/watch?v=dnhEnF7_RyM
 https://docs.djangoproject.com/en/4.2/topics/email/
 
+## reChat (real time chat)
+Reference:
+https://www.geeksforgeeks.org/realtime-chat-app-using-django/
+
 ## REST API
 `$curl -H 'Accept: application/json; indent=4' http://127.0.0.1:8000/questions/`
 
